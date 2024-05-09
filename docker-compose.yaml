@@ -1,0 +1,26 @@
+version: "2.3"
+services:
+  db:
+    image: mariadb:10.11
+    container_name: mdb1011_service
+    restart: unless-stopped
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: mypass
+      MYSQL_ROOT_PASSWORD: mypass
+      SERVICE_NAME: mysql
+    ports:
+      - "3307:3306"
+    volumes:
+      - mdb3307:/var/lib/mysql
+    networks:
+      - mdbtenel
+
+volumes:
+  mdb3307:
+    driver: bridge
+
+networks:
+  mdbtenel:
+    driver: bridge
+  
