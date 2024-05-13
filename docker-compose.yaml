@@ -2,7 +2,7 @@
 services:
   db:
     image: mariadb:10.11
-    container_name: mdb1011_service
+    container_name: mdb10117_service
     restart: unless-stopped
     environment:
       MYSQL_USER: user
