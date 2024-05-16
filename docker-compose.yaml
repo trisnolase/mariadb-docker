@@ -1,4 +1,4 @@
-# version: "2.3"
+# version: "3.0"
 services:
   db:
     image: mariadb:10.11
@@ -19,9 +19,11 @@ services:
 
 networks:
   db_mdbs:
-    driver: bridge
+    # uncomment satu baris "driver: bridge" jika ada masalah dengan koneksi
+    # driver: bridge
     name: db_service
 
 volumes:
   mdb3307:
-    driver: bridge
+    # uncomment satu baris "driver: bridge" jika ada masalah dengan koneksi
+    # driver: bridge
