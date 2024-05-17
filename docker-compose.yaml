@@ -1,8 +1,7 @@
-# version: "3.0"
 services:
   db:
     image: mariadb:10.11.7
-    container_name: mdb10117_service
+    container_name: mdb10117
     restart: unless-stopped
     environment:
       MYSQL_USER: user
@@ -12,18 +11,19 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - mdb3307:/var/lib/mysql
+      - mdb10117:/var/lib/mysql
     
     networks:
       - db_mdbs
 
 networks:
   db_mdbs:
+    name: mdb10117_service
     # uncomment satu baris "driver: bridge" jika ada masalah dengan koneksi
-    # driver: bridge
-    name: db_service
+    driver: bridge
 
 volumes:
-  mdb3307:
+  mdb10117:
+    name: mdb10117-data
     # uncomment satu baris "driver: bridge" jika ada masalah dengan koneksi
-    # driver: bridge
+    driver: bridge
