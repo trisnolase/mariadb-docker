@@ -1,7 +1,7 @@
 # version: "3.0"
 services:
   db:
-    image: mariadb:10.11
+    image: mariadb:10.11.7
     container_name: mdb10117_service
     restart: unless-stopped
     environment:
