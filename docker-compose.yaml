@@ -11,7 +11,11 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - mdb10117:/var/lib/mysql
+      # - mdb10117:/var/lib/mysql
+      # dua baris kode dibawah ini untuk mount volume pada hardisk secara langsung
+      # pada saat dijalankan maka volume tidak akan dibentuk pada volume docker itu sendiri
+      - ./.docker/dbdata:/var/lib/mysql
+      - ./.docker/mysql/my.cnf:/etc/mysql/my.cnf
     
     networks:
       - db_mdbs
@@ -20,10 +24,10 @@ networks:
   db_mdbs:
     name: mdb10117_service
     # uncomment satu baris "driver: bridge" jika ada masalah dengan koneksi
-    driver: bridge
+    # driver: bridge
 
 volumes:
   mdb10117:
     name: mdb10117-data
     # uncomment satu baris "driver: bridge" jika ada masalah dengan koneksi
-    driver: bridge
+    # driver: bridge
